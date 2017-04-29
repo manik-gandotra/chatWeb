@@ -2,37 +2,105 @@
 
 {% block content %}
   {% load staticfiles %}
-  <h1>{{ room.label }}</h1>
-  <p class="quiet">
-    Anyone with this URL can join the room and chat: 
-    <code>{{ request.scheme }}://{{ request.get_host }}/{{ room.label }}</code> 
-  </p>
-  <p>
-    <label for="handle">Your name:</label>
-    <input id="handle" type="text" placeholder="handle">
-  </p>
-  <form id="chatform">
-    <table id="chat">
-      <tbody>
-        {% for message in messages %}
+  {% include "includes/header-signedin.html" %}
+  {% include "includes/room-list.html" %}
+
+
+
+  <div class="content-wrapper">
+    <div class="content">
+    <!--
+      <h1>{{ room.label }}</h1>
+      <p class="quiet">
+        Anyone with this URL can join the room and chat: 
+        <code>{{ request.scheme }}://{{ request.get_host }}/{{ room.label }}</code> 
+      </p>
+      -->
+      <form id="chatform">
+        <div class="col-md-12 bg-white " style="padding-top: 14px;">
+          <div class="chat-box bg-white">
+            <div class="input-group">
+              <input class="form-control message-input" id="message" type="text" placeholder="Enter Your Message..." style="padding: 1px; font-family: georgia; font-size: 15px;"">
+
+              <!--<textarea class="form-control border rounded"  placeholder="Type Your Message..." type="textarea" rows="2" id="message" style="padding: 1px; font-family: georgia; font-size: 15px;"></textarea>-->
+              <span class="input-group-btn">
+                <button class="btn btn-success rounded" type="submit" id="go" style="width: 65px; margin: 2px; height: 30px; line-height: 18px; padding: 0; font-size: 14px;">Send</button>
+              </span>
+            </div><!-- /input-group --> 
+          </div>  
+
+          <div class="chat-message" style="height: 580px; overflow-y: scroll;">
+
+              <ul class="chat" id="chat">
+                {% for message in messages %}
+                  <li class="left clearfix">
+
+                    <div class="chat-body" >
+                      <div class="header" style="text-align: left;">
+                        <strong class="chat-participant" >{{ message.handle }}</strong>
+                        <p class="pull-right text-muted" style="margin-right: 10px; padding: 0;">{{ message.formatted_timestamp }}</p>
+                        <p class="message-text" style="color: #220707; font-size: 15px;">
+                          {{ message.message }}
+                        </p>
+                      </div>
+                    </div>
+                  </li>
+                {% endfor %}
+
+                  <!--<li class="right clearfix">
+
+                    <div class="chat-body clearfix">
+                      <div class="header">
+                        <strong class="chat-participant">Sarah</strong>
+                        <small class="pull-right text-muted"><i class="fa fa-clock-o"></i> 13 mins ago</small>
+                      </div>
+                      <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales at. 
+                      </p>
+                    </div>
+                  </li>-->        
+              </ul>
+          </div>
+
+        </div>  
+        <!--
+        <table id="chat">
+          <tbody>
+            {% for message in messages %}
+              <tr>
+                <td>{{ message.formatted_timestamp }}</td>
+                <td>{{ message.handle }}</td>
+                <td>{{ message.message }}</td>
+                <td>sfksfjsj</td>
+              </tr> 
+            {% endfor %}
+          </tbody>
+          <tfoot>
           <tr>
-            <td>{{ message.formatted_timestamp }}</td>
-            <td>{{ message.handle }}</td>
-            <td>{{ message.message }}</td>
-            <td>sfksfjsj</td>
-          </tr> 
-        {% endfor %}
-      </tbody>
-      <tfoot>
-      <tr>
-        <td>Say something:</td>
-        <td colspan=2>
-          <input id="message" type="text" placeholder="message">
-          <button type="submit" id="go">Say it</button>
-        </td>
-      </tfoot>
-    </table>
-  </form>
+            <td>Say something:</td>
+            <td colspan=2>
+              <input class="message-input" id="message" type="text" placeholder="message">
+              <button type="submit" id="go">Say it</button>
+            </td>
+          </tr>
+          </tfoot>
+        </table>-->
+      </form>
+      <!--<p>
+        <label for="handle">Your name:</label>
+        <input class="message-input" id="handle" type="text" value="Anonymous" placeholder="handle">
+      </p>
+  -->
+
+
+      
+    </div>
+  </div>
+
+
+
+
+
 {% endblock content %}
 
 {% block afterbody %}

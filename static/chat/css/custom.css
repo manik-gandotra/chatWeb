@@ -1,0 +1,50 @@
+html{
+	height: 100%;
+}
+body{
+	background-color: #f6f6f6;
+	height: 100%;
+}
+
+.sign-header{
+	color: green;
+}
+aside{
+	height: 100%;
+}
+
+content-wrapper{
+	height: 100%;
+}
+
+.room-search{
+	margin: 5%;
+
+}
+
+.room-list-pad{
+	padding: 4px;
+	text-align: left;
+}
+
+.sidebar-menu > li > a{
+	padding: 4px;
+}
+
+.wrapper{
+	background-color: azure;
+}
+
+.room-name-header{
+	color: #eff7ff;
+	font-size: 25px;
+	margin: 5px;
+	font-family: verdana, serif;
+}
+
+.hello-user{
+	color: #eff7ff;
+	margin: 8px;
+	font-family: calibri, times;
+
+}

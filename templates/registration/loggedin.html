@@ -1,9 +1,13 @@
 {% extends "base.html" %}
 {% block title %}Logged In{% endblock %}
 {% block content %}
+{% include "includes/header-signedin.html" %}
+{% include "includes/room-list.html" %}
 
-<h1>Welcome {{username}}</h1>
+
+<h1>Welcome {{ username }}</h1>
 <p>Thank you for logging in.</p>
-<p><a href="/accounts/logout/">Logout</a></p>
+<p>Please Select a ChatRoom to begin</p>
+
 
 {% endblock %}

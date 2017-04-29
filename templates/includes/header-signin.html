@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!--
+<nav class="navbar navbar-default main-header">
+  <div class="container-fluid sign-header">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">
+        <img alt="Chat Room" src="...">
+      </a>
+    </div>
+
+    <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+      <a href="/accounts/login"><button type="button" class="btn btn-default navbar-btn">Login</button></a>
+      <a href="/accounts/register"><button type="button" class="btn btn-default navbar-btn">Register</button></a>
+    </div>
+  </div>
+</nav>
+-->
+ 
+  <header class="main-header">
+    <a href="/" class="logo">
+      <span class="logo-mini"><img src="" alt="Chat App"> </span>
+      <span class="logo-lg"><img src="" alt="Chat Application"></span>
+    </a>
+    
+    <nav class="navbar navbar-static-top">
+
+      <div class="navbar-custom-menu">
+        <ul class="nav navbar-nav">
+
+       <a href="/accounts/login"><button type="button" class="btn btn-default navbar-btn">Login</button></a>
+        <a href="/accounts/register"><button type="button" class="btn btn-default navbar-btn">Register</button></a>
+
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}  
+
+  <header class="main-header">
+    <a href="" class="logo">
+      <span class="logo-mini"><img src="" alt="Chat App"> </span>
+      <span class="logo-lg"><img src="" alt="Chat Application"></span>
+    </a>
+    
+    <nav class="navbar navbar-static-top">
+      <input class="message-input" id="handle" type="text" value="{{ user.get_username }}" placeholder="handle" style="display: none;">
+
+      <div class="collapse navbar-collapse navbar-left">
+        <h3 class="room-name-header">Chatroom: {{ room.label }}</h3>
+      </div>
+
+      <div class="navbar navbar-static-top navbar-right" style="margin: 5px;">
+        <a class="button button-default" href="/accounts/logout/">Logout</a>
+      </div>
+
+
+      <div class="collapse navbar-collapse navbar-right" style="margin: 5px; display: none;">
+      <!--
+
+        <form action="" method="get">
+          <input type="text" name="room_name">
+          <input type="submit" value="New Room" href="/new/">
+        </form>-->
+        <a class="button button-primary" href="/new/">Create new chat room</a>
+      </div>
+
+ 
+      <div class="collapse navbar-collapse navbar-right" style="margin: 5;">
+        <p class="hello-user" style="margin: 10px 5px 0 0; font-size: 17px;">Hello, {{ username }}</p >
+      </div>
+      
+    </nav>
+  </header>
+{% endblock %}

@@ -1,0 +1,22 @@
+
+
+
+<aside class="main-sidebar">
+  <!-- sidebar: style can be found in sidebar.less -->
+  <nav class="sidebar" style="height: 100%; width:100%; overflow-y: scroll;">
+
+    <!-- sidebar menu: : style can be found in sidebar.less -->
+    <ul class="sidebar-menu">
+      {% for r in all_rooms %}
+        {% if r.label != 'accounts' %}
+          {% if r.label != 'loggedin' %}
+            <li class="room-list-pad"><a href="/{{ r.label }}/" class="room-list-pad">{{ r.label }}</a></li>
+            <hr style="margin: 0; border-top: 1px solid #79d8c4;">
+          {% endif %}
+        {% endif %}
+        
+      {% endfor %}
+
+    </ul>
+  </nav>
+</aside>

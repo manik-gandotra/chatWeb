@@ -1,8 +1,9 @@
 {% extends "base.html" %}
 {% block title %}You are Registered{% endblock %}
 {% block content %}
+{% include "includes/header-signin.html" %}
 
   <h2>Thank you for Registering</h2>
-  <p><a href="/accounts/login/">Please Login</a></p>
+	{% include "registration/login.html" %}
 
 {% endblock %}

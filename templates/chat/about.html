@@ -1,6 +1,9 @@
 {% extends "base.html" %}
 
 {% block content %}
+
+  {% include "includes/header-signin.html" %}
+
   <h1>Django Channels Example</h1>
   <p class="deck">
     This is a demo using <a href="http://channels.readthedocs.org/en/latest/">
@@ -14,5 +17,9 @@
   <p class="quiet">
     Or, you can visit <code>{{ request.scheme }}://{{ request.get_host }}/any-path-you-want</code> 
     to create a arbitrary room or join one whose name you know.
+  </p>
+  <p>
+    <a href="/accounts/register">Register</a>
+    <a href="/accounts/login">Login</a>
   </p>
 {% endblock content %}
