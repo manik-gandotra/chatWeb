@@ -5,6 +5,7 @@ import django
 urlpatterns = [
 	url(r'^$',  views.about, name='about'),
 	url(r'^new/$', views.new_room, name='new_room'),
+	url(r'^create_room/$', views.create_room, name='create_room'),
 	url(r'^(?P<label>[\w-]{,50})/$', views.chat_room, name='chat_room'),
 	url(r'^accounts/register/$', views.register, name='register'),
 	url(r'^accounts/register/complete/$', views.registration_complete,name='registration_complete'),

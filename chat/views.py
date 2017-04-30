@@ -18,7 +18,7 @@ def new_room(request):
     """
     Randomly create a new room, and redirect to it.
     """
-    
+    '''
     new_room = None
 
     while not new_room:
@@ -29,10 +29,30 @@ def new_room(request):
             new_room = Room.objects.create(label=label)
     return redirect(chat_room, label=label)
     '''
-    room = request.GET['room_name']
-    print("This is a new Room Request: Room name",room)
-    return redirect(chat_room, label=room)
-    '''
+    label = request.GET.get('room_name')
+    new_room = None
+    
+    username = None
+    if request.user.is_authenticated():
+        username = request.user.username
+
+    all_rooms = Room.objects.all()
+    
+
+    if Room.objects.filter(label=label).exists():
+
+        return render(request, 'includes/new_room.html',{
+                'message_hello': "Error: The requested room already exists",
+                'room': new_room,
+                'username' : username,
+                'color_header' : 'red',
+                'all_rooms' : all_rooms,        
+
+            })
+    else:
+        new_room = Room.objects.create(label=label)
+        return redirect(chat_room, label=label)
+    
 
 
 @login_required(login_url='/accounts/login/')
@@ -47,6 +67,7 @@ def chat_room(request, label):
     # upon first visit (a la etherpad).
     
     #room, created = Room.objects.get_or_create(label=label)
+
     try:
         room = Room.objects.get(label=label)
     except Room.DoesNotExist:
@@ -73,9 +94,23 @@ def chat_room(request, label):
     return render(request, "chat/room.html", {
         'room': room,
         'messages': messages,
-        'all_rooms': all_rooms,
+        'all_rooms': all_rooms,        
         'username': username,
     })
+
+def create_room(request):
+    username = None
+
+    if request.user.is_authenticated():
+        username = request.user.username
+    all_rooms = Room.objects.all()
+
+    return render(request, 'includes/new_room.html',{
+            'message_hello': "Please specify the room name you want to create",
+            'username' : username,
+            'color_header' : 'black',
+            'all_rooms' : all_rooms,
+        })
 
 
 def register(request):
@@ -96,6 +131,7 @@ def register(request):
 def registration_complete(request):
     return render_to_response('registration/registration_complete.html')
 
+@login_required(login_url='/accounts/login/')
 def loggedin(request):
     all_rooms = Room.objects.all()
 

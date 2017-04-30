@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}Create New Room{% endblock %}
+
+{% block content %}
+
+  {% include "includes/header-signedin.html" %}
+
+  {% include "includes/room-list.html" %}
+
+  
+
+	<div class="content-wrapper">
+        <div class="form-box col-md-8">
+        	<div class="form-top">
+            	<div class="form-top">
+            		<div class="form-top-left">
+
+						<h1 style="color: {{ color_header }}">{{ message_hello }}</h1>
+						<h4>Room name can only have letters, numbers and hyphon(-).<span style="color: maroon;">No blanks/spaces allowed.</span></h4>
+            		</div>
+            		<div class="form-top-right">
+            			<i class="fa fa-key"></i>
+            		</div>
+                </div>
+
+            </div>
+            <div class="form-bottom">
+		        <form class="login-form" action="{% url 'views.new_room' %}" method="get" style="">
+		          <input class="form-control" type="text" name="room_name" required placeholder="Create New Room" style="margin-right: 15px;" pattern = "^[A-Za-z0-9-]+$"><br>
+		          <button class="button button-primary" type="submit" value="room">Create New Room</button>
+		        </form>
+
+            </div>
+        </div>
+
+
+
+
+	</div>
+
+
+
+
+{% endblock content %}

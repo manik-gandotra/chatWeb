@@ -65,10 +65,20 @@ content-wrapper{
     background-repeat: no-repeat;
     background-size: cover;
 }
-.bgabout h1,h2,h3
+.bgabout h1
 {
 	color:white;
 }
+.bgabout h2
+{
+	color:white;
+}
+
+.bgabout h3
+{
+	color:white;
+}
+
 .github:hover
 {
 	-moz-box-shadow: 10px 10px 5px #ccc;

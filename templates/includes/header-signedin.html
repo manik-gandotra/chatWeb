@@ -8,32 +8,32 @@
       <span class="logo-lg"><img src="" alt="Chat Application"></span>
     </a>
     
-    <nav class="navbar navbar-static-top">
+    <nav class="navbar navbar-static-top" style="height: 5px;">
       <input class="message-input" id="handle" type="text" value="{{ user.get_username }}" placeholder="handle" style="display: none;">
 
       <div class="collapse navbar-collapse navbar-left">
         <h3 class="room-name-header">Chatroom: {{ room.label }}</h3>
+      
       </div>
-
+      
       <div class="navbar navbar-static-top navbar-right" style="margin: 5px;">
-        <a class="button button-default" href="/accounts/logout/">Logout</a>
+        <a  href="/accounts/logout/"><button class="button button-danger">Logout</button></a>
       </div>
 
-
-      <div class="collapse navbar-collapse navbar-right" style="margin: 5px; display: none;">
-      <!--
-
-        <form action="" method="get">
-          <input type="text" name="room_name">
-          <input type="submit" value="New Room" href="/new/">
-        </form>-->
-        <a class="button button-primary" href="/new/">Create new chat room</a>
+      <div class="collapse navbar-collapse navbar-right" style="margin: 5px;">
+        <!-- <form action="{% url 'views.new_room' %}" method="get" style="display: none;">
+          <input type="text" name="room_name" required placeholder="Create New Room" style="display: none; margin-right: 15px;">
+        </form>
+        -->
+        <a href="/create_room/"><button class="button button-primary" >Create new chat room</button></a>
       </div>
-
  
-      <div class="collapse navbar-collapse navbar-right" style="margin: 5;">
-        <p class="hello-user" style="margin: 10px 5px 0 0; font-size: 17px;">Hello, {{ username }}</p >
+      <div class="collapse navbar-collapse navbar-right" style="margin: 5px;">
+        <p class="hello-user" style="margin: 5px 8px 0 0; font-size: 17px;">Hello, {{ username }}</p >
       </div>
+      
+      
+
       
     </nav>
   </header>
