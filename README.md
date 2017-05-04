@@ -1,5 +1,5 @@
 # chatWeb 
-This is a web app created using **Django** that allows users to chat in real time. The users can register on the site and they can create new chat rooms with names of their choice. Another person can open the same chat room so that they can chat among themselves. At this point the website has not been deployed online. **ngrok** was used to test the site.
+This is a web app created using **Django** that allows users to chat in real time. The users can register on the site and they can create new chat rooms with names of their choice. Another person can open the same chat room so that they can chat among themselves. At this point the website has not been deployed on the web. **ngrok** was used to test the site.
 
 ## Running locally
 
